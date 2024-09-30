@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Owner {
+  id: Int!
+  name: String!
+  products: [Product!]!
+}
+
+type Product {
+  id: Int!
+  name: String!
+  price: Int!
+  ownerId: Int!
+  owner: Owner!
+}
+
+type Query {
+  products: [Product!]!
+  getProductById(id: Int!): Product!
+  findOwners: [Owner!]!
+  findOwnersById(id: Int!): Owner!
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInputDto!): Product!
+  createOwner(createOwnerInput: CreateOwnerInputDto!): Owner!
+}
+
+input CreateProductInputDto {
+  name: String!
+  price: Int!
+  ownerId: Int!
+}
+
+input CreateOwnerInputDto {
+  name: String!
+}
